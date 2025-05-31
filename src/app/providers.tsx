@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { NetworkId, WalletId, WalletManager, WalletProvider } from "@txnlab/use-wallet-react"
-import { ToastContainer } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
+import type React from "react";
+import { NetworkId, WalletId, WalletManager, WalletProvider } from "@txnlab/use-wallet-react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const walletManager = new WalletManager({
   wallets: [
@@ -16,7 +16,7 @@ const walletManager = new WalletManager({
     },
   ],
   defaultNetwork: NetworkId.TESTNET,
-})
+});
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -35,6 +35,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
         theme="dark"
       />
     </WalletProvider>
-  )
+  );
 }
 
