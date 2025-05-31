@@ -3,7 +3,6 @@ import { SiteHeader } from "@/components/ui/header"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 import { Providers } from "./providers"
-import type React from "react" // Added import for React
 
 const inter = Inter({ subsets: ["latin"] })
 
