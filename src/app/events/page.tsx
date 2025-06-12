@@ -1,16 +1,16 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { createClient } from "@supabase/supabase-js"
-import { format } from "date-fns"
-import Link from "next/link"
-import { Calendar, MapPin, Search, Filter, X } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
-import { cn } from "@/lib/utils"
-import Image from "next/image"
+import { useEffect, useState } from "react";
+import { createClient } from "@supabase/supabase-js";
+import { format } from "date-fns";
+import Link from "next/link";
+import { Calendar, MapPin, Search, Filter, X } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 // Initialize Supabase client
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
@@ -248,7 +248,7 @@ export default function EventsPage() {
                       <div className="aspect-[5/3] relative overflow-hidden">
                         <img
                           src={event.image_url.replace("ipfs://", "https://ipfs.io/ipfs/") || "/placeholder.svg"}
-                          alt={event.event_name}
+                          alt={event.event_name || "Event image"}
                           className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-80" />

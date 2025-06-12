@@ -4,17 +4,17 @@ import React, { useEffect, useState } from "react"
 import { useWallet } from "@txnlab/use-wallet-react"
 import { createClient } from "@supabase/supabase-js"
 import { format } from "date-fns"
-import { useRouter } from "next/navigation"
+import { useRouter } from "next/navigation";
 import { Calendar, Clock, MapPin, Users, ArrowLeft, Ticket, Loader2, WalletCards, Clock4, XCircle } from "lucide-react"
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { toast } from "react-toastify"
-import { getOrCreateUser } from "@/lib/userCreation"
+import { getOrCreateUser } from "@/lib/userCreation";
 import algosdk from "algosdk"
-import { UserDetailsDialog } from "@/components/user-details-dialog"
+import { UserDetailsDialog } from "@/components/user-details-dialog";
 import { type QRPayload, generateQRCodeDataURL, signPayload } from "@/lib/qr-utils"
 
 // Initialize Supabase client

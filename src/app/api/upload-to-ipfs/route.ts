@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server"
-import FormData from "form-data"
-import axios from "axios"
+import { NextResponse } from "next/server";
+import FormData from "form-data";
+import axios from "axios";
 
 export async function POST(req: Request) {
   try {
@@ -41,7 +41,7 @@ export async function POST(req: Request) {
       ipfsUrl: `ipfs://${response.data.IpfsHash}`,
     })
   } catch (error) {
-    console.error("Error uploading to IPFS:", error)
+    console.error("IPFS upload error :", error)
     return NextResponse.json({ error: "Failed to upload to IPFS" }, { status: 500 })
   }
 }
