@@ -31,7 +31,7 @@ export function SiteHeader() {
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/50 backdrop-blur-md supports-[backdrop-filter]:bg-black/20">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+      <div className="container mx-auto flex h-15 items-center justify-between px-4">
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
             <span className="text-xl font-bold text-white">Julo</span>
@@ -55,7 +55,7 @@ export function SiteHeader() {
 
         <div className="flex items-center space-x-4">
           <Button variant="outline" className="text-white border-white/20 hover:bg-white/5" onClick={handleConnect}>
-            <Wallet2 className="mr-2 h-4 w-4" />
+            <Wallet2 className="mr-2 h-5 w-5" />
             {activeAccount
               ? `${activeAccount.address.slice(0, 4)}...${activeAccount.address.slice(-4)}`
               : "Connect Wallet"}
