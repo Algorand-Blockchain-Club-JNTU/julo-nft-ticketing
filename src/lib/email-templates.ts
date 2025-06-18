@@ -1,4 +1,4 @@
-import crypto from "crypto"
+import crypto from "crypto";
 
 // Types for our data structures
 type TicketData = {
