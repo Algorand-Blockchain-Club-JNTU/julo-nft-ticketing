@@ -1,14 +1,14 @@
 "use client"
 
-import { useState } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Wallet2 } from "lucide-react"
-import { cn } from "@/lib/utils"
-import ConnectWalletModal from "./connect-wallet-modal"
-import { useWallet } from "@txnlab/use-wallet-react"
-import { toast } from "react-toastify"
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Wallet2 } from "lucide-react";
+import { cn } from "@/lib/utils";
+import ConnectWalletModal from "./connect-wallet-modal";
+import { useWallet } from "@txnlab/use-wallet-react";
+import { toast } from "react-toastify";
 
 const navigationItems = [
   { name: "Events", href: "/events" },
