@@ -1,11 +1,11 @@
 "use client"
 
-import React from "react"
-import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
-import { createClient } from "@supabase/supabase-js"
-import { format } from "date-fns"
-import Link from "next/link"
+import React from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { createClient } from "@supabase/supabase-js";
+import { format } from "date-fns";
+import Link from "next/link";
 import {
   Users,
   Calendar,
