@@ -1,8 +1,8 @@
 'use client';
 
-import { type Wallet, useWallet } from "@txnlab/use-wallet-react"
-import { toast } from "react-toastify"
-import "../styles/sad.css"
+import { type Wallet, useWallet } from "@txnlab/use-wallet-react";
+import { toast } from "react-toastify";
+import "../styles/sad.css";
 
 const ConnectWalletModal = ({
   wallets,
