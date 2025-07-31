@@ -2,6 +2,64 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Shield, Zap, Clock, Coins } from "lucide-react";
 
+const algorandBenefits = [
+  {
+    title: "Secure",
+    description:
+      "Pure proof-of-stake consensus mechanism ensures maximum security and decentralization",
+    icon: <Shield className="h-12 w-12 mb-4 text-purple-500" />,
+  },
+  {
+    title: "Fast",
+    description: "Less than 4.5 seconds block finality for quick ticket transactions",
+    icon: <Zap className="h-12 w-12 mb-4 text-purple-500" />,
+  },
+  {
+    title: "Scalable",
+    description: "Handles over 6,000 transactions per second for seamless event ticketing",
+    icon: <Clock className="h-12 w-12 mb-4 text-purple-500" />,
+  },
+  {
+    title: "Cost-Effective",
+    description:
+      "Minimal transaction fees make ticketing affordable for organizers and attendees",
+    icon: <Coins className="h-12 w-12 mb-4 text-purple-500" />,
+  },
+];
+
+const featureGroups = [
+  [
+    {
+      title: "Smart Contract Ticketing",
+      description:
+        "Automated ticket distribution and validation through Algorand smart contracts",
+    },
+    {
+      title: "Transparent Pricing",
+      description:
+        "All transactions are recorded on the blockchain for complete transparency",
+    },
+    {
+      title: "NFT Integration",
+      description: "Unique NFT tickets with special perks and collectible value",
+    },
+  ],
+  [
+    {
+      title: "Instant Settlements",
+      description: "Real-time payment processing and ticket delivery",
+    },
+    {
+      title: "Secondary Market",
+      description: "Secure peer-to-peer ticket resale with price controls",
+    },
+    {
+      title: "Community Governance",
+      description: "Platform decisions made through community voting",
+    },
+  ],
+];
+
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -20,7 +78,11 @@ export default function HomePage() {
               Explore Events
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-purple-600 text-purple-400 hover:bg-purple-600/10">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-purple-600 text-purple-400 hover:bg-purple-600/10"
+            >
               Create Event
             </Button>
           </div>
@@ -33,47 +95,24 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Algorand Blockchain?</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Our platform leverages Algorand &apos; s powerful blockchain technology to provide a secure, efficient, and
+              Our platform leverages Algorand's powerful blockchain technology to provide a secure, efficient, and
               transparent ticketing experience.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="bg-gray-900/50 border-purple-500/20 hover:border-purple-500/40 transition-colors">
-              <CardContent className="p-6">
-                <Shield className="h-12 w-12 mb-4 text-purple-500" />
-                <h3 className="text-xl font-semibold mb-2">Secure</h3>
-                <p className="text-gray-400">
-                  Pure proof-of-stake consensus mechanism ensures maximum security and decentralization
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gray-900/50 border-purple-500/20 hover:border-purple-500/40 transition-colors">
-              <CardContent className="p-6">
-                <Zap className="h-12 w-12 mb-4 text-purple-500" />
-                <h3 className="text-xl font-semibold mb-2">Fast</h3>
-                <p className="text-gray-400">Less than 4.5 seconds block finality for quick ticket transactions</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gray-900/50 border-purple-500/20 hover:border-purple-500/40 transition-colors">
-              <CardContent className="p-6">
-                <Clock className="h-12 w-12 mb-4 text-purple-500" />
-                <h3 className="text-xl font-semibold mb-2">Scalable</h3>
-                <p className="text-gray-400">Handles over 6,000 transactions per second for seamless event ticketing</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gray-900/50 border-purple-500/20 hover:border-purple-500/40 transition-colors">
-              <CardContent className="p-6">
-                <Coins className="h-12 w-12 mb-4 text-purple-500" />
-                <h3 className="text-xl font-semibold mb-2">Cost-Effective</h3>
-                <p className="text-gray-400">
-                  Minimal transaction fees make ticketing affordable for organizers and attendees
-                </p>
-              </CardContent>
-            </Card>
+            {algorandBenefits.map((benefit, index) => (
+              <Card
+                key={index}
+                className="bg-gray-900/50 border-purple-500/20 hover:border-purple-500/40 transition-colors"
+              >
+                <CardContent className="p-6">
+                  {benefit.icon}
+                  <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+                  <p className="text-gray-400">{benefit.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -89,43 +128,19 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Smart Contract Ticketing</h3>
-                <p className="text-gray-400">
-                  Automated ticket distribution and validation through Algorand smart contracts
-                </p>
+            {featureGroups.map((group, groupIdx) => (
+              <div key={groupIdx} className="space-y-8">
+                {group.map((feature, idx) => (
+                  <div key={idx}>
+                    <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                    <p className="text-gray-400">{feature.description}</p>
+                  </div>
+                ))}
               </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Transparent Pricing</h3>
-                <p className="text-gray-400">
-                  All transactions are recorded on the blockchain for complete transparency
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">NFT Integration</h3>
-                <p className="text-gray-400">Unique NFT tickets with special perks and collectible value</p>
-              </div>
-            </div>
-
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Instant Settlements</h3>
-                <p className="text-gray-400">Real-time payment processing and ticket delivery</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Secondary Market</h3>
-                <p className="text-gray-400">Secure peer-to-peer ticket resale with price controls</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Community Governance</h3>
-                <p className="text-gray-400">Platform decisions made through community voting</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
-
