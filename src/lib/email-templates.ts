@@ -40,6 +40,7 @@ function signPayload(payload: TicketData, privateKey: string): string {
 
 export async function generateEmailTemplate(event: Event, ticketDetails: TicketDetails) {
    console.log("generateEmailTemplate function executed")
+   console.log("Event name:", event.event_name)
    // Create ticket data
   const ticketData: TicketData = {
     assetId: ticketDetails.assetId,
