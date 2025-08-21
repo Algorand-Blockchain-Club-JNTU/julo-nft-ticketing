@@ -2,6 +2,12 @@ import { NextResponse } from "next/server";
 import FormData from "form-data";
 import axios from "axios";
 
+/**
+ * Handles POST requests to upload files to IPFS via Pinata.
+ * Converts the uploaded file to a buffer and pins it to IPFS.
+ * @param req - The incoming request containing the file to upload
+ * @returns A JSON response with IPFS hash and URL or error message
+ */
 export async function POST(req: Request) {
   try {
     const formData = await req.formData()
