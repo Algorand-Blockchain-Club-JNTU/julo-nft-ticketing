@@ -46,7 +46,11 @@ function signPayload(payload: TicketData, privateKey: string): string {
   return sign.sign(privateKey, "hex")
 }
 
-// Function to generate QR code as data URL
+/**
+ * Generates a QR code from the provided data and returns it as a data URL.
+ * @param data - The data to encode in the QR code
+ * @returns A promise that resolves to the QR code data URL
+ */
 async function generateQRCodeDataURL(data: string): Promise<string> {
   try {
     return await QRCode.toDataURL(data, {
