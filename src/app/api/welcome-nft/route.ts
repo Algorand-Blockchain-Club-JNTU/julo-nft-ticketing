@@ -3,6 +3,12 @@ import { createClient } from "@supabase/supabase-js"
 
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
 
+/**
+ * Handles POST requests to send a welcome NFT to a user.
+ * Checks if the user already has a welcome NFT and updates the database accordingly.
+ * @param request - The incoming request containing the userAddress
+ * @returns A JSON response with success status or error message
+ */
 export async function POST(request: Request) {
   try {
     const { userAddress } = await request.json()
