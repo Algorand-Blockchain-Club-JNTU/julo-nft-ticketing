@@ -72,6 +72,11 @@ async function generateQRCodeDataURL(data: string): Promise<string> {
 }
 
 
+/**
+ * Generates a QR code from the provided data and returns it as a base64 data URL.
+ * @param data - The data to encode in the QR code
+ * @returns A promise that resolves to the QR code base64 data URL
+ */
 async function generateQRCodeBase64(data: string): Promise<string> {
   try {
     return await QRCode.toDataURL(data, {
