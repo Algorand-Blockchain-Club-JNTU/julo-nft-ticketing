@@ -17,6 +17,7 @@ export async function createWelcomeNFT(
   transactionSigner: any
 ): Promise<number | null> {
   console.log("createWelcomeNFT function executed")
+  console.log("User address for welcome NFT:", userAddress)
   try {
     const suggestedParams = await algodClient.getTransactionParams().do()
     
