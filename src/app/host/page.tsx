@@ -101,6 +101,7 @@ function LoadingSkeleton() {
 }
 
 export default function HostPage() {
+  console.log("HostPage component initialized")
   const { activeAddress } = useWallet()
   const [events, setEvents] = useState<any[]>([])
   const [isLoading, setIsLoading] = useState(true)

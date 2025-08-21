@@ -38,7 +38,7 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    console.log("Button component rendered")
+    console.log("Button component initialized")
     const Comp = asChild ? Slot : "button";
     return (
       <Comp

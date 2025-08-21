@@ -8,7 +8,9 @@ import { cn } from "@/lib/utils"
 const Progress = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>
->(({ className, value, ...props }, ref) => (
+>(({ className, value, ...props }, ref) => {
+  console.log("Progress component initialized")
+  return (
   <ProgressPrimitive.Root
     ref={ref}
     className={cn(

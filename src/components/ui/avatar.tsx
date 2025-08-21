@@ -9,7 +9,7 @@ const Avatar = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
 >(({ className, ...props }, ref) => {
-  console.log("Avatar component rendered")
+  console.log("Avatar component initialized")
   return (
   <AvatarPrimitive.Root
     ref={ref}

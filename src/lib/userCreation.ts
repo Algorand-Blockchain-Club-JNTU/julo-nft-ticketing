@@ -10,6 +10,7 @@ type UserDetails = {
 }
 
 export async function getOrCreateUser(walletAddress: string, userDetails?: UserDetails) {
+  console.log("getOrCreateUser function executed")
   try {
     // First, check if user exists
     const { data: existingUser } = await supabase

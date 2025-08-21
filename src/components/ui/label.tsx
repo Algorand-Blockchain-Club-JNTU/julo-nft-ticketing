@@ -15,7 +15,7 @@ const Label = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
     VariantProps<typeof labelVariants>
 >(({ className, ...props }, ref) => {
-  console.log("Label component rendered")
+  console.log("Label component initialized")
   return (
   <LabelPrimitive.Root
     ref={ref}

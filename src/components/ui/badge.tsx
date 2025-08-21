@@ -27,7 +27,7 @@ export interface BadgeProps
 
 // Reusable Badge component with variant-based styling
 function Badge({ className, variant, ...props }: BadgeProps) {
-  console.log("Badge component rendered")
+  console.log("Badge component initialized")
   return (
     <div className={cn(badgeVariants({ variant }), className)} {...props} />
   );

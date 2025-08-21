@@ -6,7 +6,7 @@ const Textarea = React.forwardRef<
   HTMLTextAreaElement,
   React.ComponentProps<"textarea">
 >(({ className, ...props }, ref) => {
-  console.log("Textarea component rendered")
+  console.log("Textarea component initialized")
   return (
     <textarea
       className={cn(

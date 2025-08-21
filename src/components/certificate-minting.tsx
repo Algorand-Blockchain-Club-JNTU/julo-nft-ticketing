@@ -15,13 +15,14 @@ interface CertificateMintingProps {
   attendees: string[]
 }
 
-export function CertificateMinting({ 
-  eventId, 
-  eventName, 
-  eventDate, 
-  creatorAddress, 
-  attendees 
+export function CertificateMinting({
+  eventId,
+  eventName,
+  eventDate,
+  creatorAddress,
+  attendees
 }: CertificateMintingProps) {
+  console.log("CertificateMinting component initialized")
   const [isMinting, setIsMinting] = useState(false)
   const [certificatesMinted, setCertificatesMinted] = useState(false)
 

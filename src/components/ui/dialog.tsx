@@ -32,7 +32,9 @@ DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
->(({ className, children, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => {
+  console.log("DialogContent component initialized")
+  return (
   <DialogPortal>
     <DialogOverlay />
     <DialogPrimitive.Content

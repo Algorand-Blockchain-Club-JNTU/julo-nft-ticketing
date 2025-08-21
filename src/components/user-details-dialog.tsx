@@ -14,6 +14,7 @@ interface UserDetailsDialogProps {
 }
 
 export function UserDetailsDialog({ isOpen, onClose, onSubmit }: UserDetailsDialogProps) {
+  console.log("UserDetailsDialog component initialized")
   const [formData, setFormData] = useState({
     email: "",
     firstName: "",

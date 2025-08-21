@@ -16,6 +16,7 @@ export async function createWelcomeNFT(
   algodClient: algosdk.Algodv2,
   transactionSigner: any
 ): Promise<number | null> {
+  console.log("createWelcomeNFT function executed")
   try {
     const suggestedParams = await algodClient.getTransactionParams().do()
     

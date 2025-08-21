@@ -17,6 +17,7 @@ const navigationItems = [
 ]
 
 export function SiteHeader() {
+  console.log("SiteHeader component initialized")
   const pathname = usePathname()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const { activeAccount, wallets } = useWallet()
