@@ -7,6 +7,7 @@ const Card = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
   console.log("Card component initialized")
+  console.log("Card className:", className)
   return (
   <div
     ref={ref}
