@@ -223,6 +223,7 @@ export default function EventManagePage({ params }: { params: Promise<{ eventId:
   // ... rest of the component code remains the same ...
 
   const filteredRequests = requests.filter((request) => {
+    console.log("Filtering request:", request.request_id)
     const matchesSearch = request.wallet_address.toLowerCase().includes(searchQuery.toLowerCase())
     const matchesStatus = filterStatus === "all" || request.request_status === filterStatus
     return matchesSearch && matchesStatus
