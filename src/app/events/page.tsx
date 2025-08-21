@@ -93,6 +93,7 @@ export default function EventsPage() {
 
   // Clear filters
   const clearFilters = () => {
+    console.log("Clearing all filters")
     setSearchQuery("")
     setSelectedCategory("all")
     setSelectedPriceRange("all")
