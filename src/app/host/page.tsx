@@ -111,6 +111,7 @@ export default function HostPage() {
       if (!activeAddress) return
 
       try {
+        console.log("Fetching host dashboard data")
         // Fetch user profile
         const { data: profile } = await supabase.from("users").select("*").eq("wallet_address", activeAddress).single()
 

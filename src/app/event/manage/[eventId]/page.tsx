@@ -127,6 +127,7 @@ export default function EventManagePage({ params }: { params: Promise<{ eventId:
   useEffect(() => {
     async function fetchData() {
       try {
+        console.log("Fetching event management data for event:", resolvedParams.eventId)
         // Fetch event details
         const { data: event, error: eventError } = await supabase
           .from("events")
