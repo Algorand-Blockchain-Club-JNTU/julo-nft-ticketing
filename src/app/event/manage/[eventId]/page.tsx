@@ -94,6 +94,7 @@ type Event = {
 }
 
 function sliceIntoChunks(arr: any[], chunkSize: number) {
+  console.log("Slicing array into chunks")
   const res = [];
   for (let i = 0; i < arr.length; i += chunkSize) {
     const chunk = arr.slice(i, i + chunkSize);
