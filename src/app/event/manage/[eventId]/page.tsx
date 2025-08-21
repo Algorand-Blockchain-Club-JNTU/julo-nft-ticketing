@@ -440,6 +440,7 @@ export default function EventManagePage({ params }: { params: Promise<{ eventId:
   }
 
   const renderRequestsTable = () => {
+    console.log("Rendering requests table")
     if (isLoading) {
       return (
         <div className="text-center py-12">
