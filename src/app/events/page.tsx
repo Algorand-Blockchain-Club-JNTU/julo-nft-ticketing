@@ -32,6 +32,10 @@ const priceRanges = [
   { id: "paid", name: "Paid Events" },
 ]
 
+/**
+ * EventsPage component displays a list of events with filtering and search capabilities.
+ * Allows users to browse, search, and filter events by category and price range.
+ */
 export default function EventsPage() {
   const [events, setEvents] = useState<any[]>([])
   const [filteredEvents, setFilteredEvents] = useState<any[]>([])
@@ -43,6 +47,7 @@ export default function EventsPage() {
   // Fetch events
   useEffect(() => {
     async function fetchEvents() {
+      console.log("Fetching events from database")
       const { data } = await supabase.from("events").select("*").order("event_date", { ascending: true })
 
       setEvents(data || [])

@@ -36,6 +36,12 @@ interface EventMetadata {
 
 
 
+/**
+ * Slices an array into chunks of a specified size.
+ * @param arr - The array to slice
+ * @param chunkSize - The size of each chunk
+ * @returns An array of chunks
+ */
 function sliceIntoChunks(arr: any[], chunkSize: number) {
   const res = [];
   for (let i = 0; i < arr.length; i += chunkSize) {
@@ -44,6 +50,11 @@ function sliceIntoChunks(arr: any[], chunkSize: number) {
   }
   return res;
 }
+
+/**
+ * CreateEventPage component for creating new events and minting NFT tickets.
+ * Handles form submission, image upload to IPFS, and blockchain transactions.
+ */
 export default function CreateEventPage() {
   const { activeAddress, algodClient, transactionSigner } = useWallet()
   const [ipfsHash, setIpfsHash] = useState<string | null>(null)
@@ -70,6 +81,7 @@ export default function CreateEventPage() {
   const handleImageUpload = async (file: File) => {
     try {
       setIsUploading(true)
+      console.log("Starting image upload to IPFS")
 
       // Preview
       const reader = new FileReader()

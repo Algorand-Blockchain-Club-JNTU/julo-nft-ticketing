@@ -103,6 +103,11 @@ function EventSkeleton() {
   )
 }
 
+/**
+ * EventPage component displays details of a specific event.
+ * Handles ticket purchasing, QR code generation, and user interactions.
+ * @param params - The route parameters containing the event ID
+ */
 export default function EventPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = React.use(params)
   const router = useRouter()
@@ -237,6 +242,7 @@ export default function EventPage({ params }: { params: Promise<{ id: string }> 
 
     try {
       setIsPurchasing(true)
+      console.log("Initiating ticket purchase process")
 
       // Get or create user and get their user_id
       if (!userDetailsSubmitted) {
