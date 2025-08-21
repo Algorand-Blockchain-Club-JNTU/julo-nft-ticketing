@@ -104,6 +104,7 @@ function sliceIntoChunks(arr: any[], chunkSize: number) {
 
 
 export default function EventManagePage({ params }: { params: Promise<{ eventId: string }> }) {
+  console.log("EventManagePage component initialized")
   const resolvedParams = React.use(params)
   const { activeAddress, algodClient, transactionSigner } = useWallet()
 
