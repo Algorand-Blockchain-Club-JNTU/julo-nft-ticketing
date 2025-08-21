@@ -37,6 +37,7 @@ export async function signPayload(payload: TicketData, privateKey: string): Prom
 // Function to generate QR code as data URL
 export async function generateQRCodeDataURL(data: string): Promise<string> {
   console.log("Generating QR code data URL")
+  console.log("QR data length:", data.length)
   try {
     return await QRCode.toDataURL(data, {
       errorCorrectionLevel: "H",
