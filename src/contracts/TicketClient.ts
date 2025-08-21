@@ -461,6 +461,7 @@ export class TicketClient {
    */
   constructor(params: Omit<AppClientParams, 'appSpec'>)
   constructor(appClientOrParams: _AppClient | Omit<AppClientParams, 'appSpec'>) {
+    console.log("TicketClient initialized")
     this.appClient = appClientOrParams instanceof _AppClient ? appClientOrParams : new _AppClient({
       ...appClientOrParams,
       appSpec: APP_SPEC,
