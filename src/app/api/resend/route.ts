@@ -32,7 +32,12 @@ type TicketDetails = {
   eventId: string | number
 }
 
-// Function to sign the payload
+/**
+ * Signs the ticket data payload using SHA256 and the provided private key.
+ * @param payload - The ticket data to sign
+ * @param privateKey - The private key for signing
+ * @returns The hexadecimal signature
+ */
 function signPayload(payload: TicketData, privateKey: string): string {
   const payloadString = JSON.stringify(payload)
   const sign = crypto.createSign("SHA256")
