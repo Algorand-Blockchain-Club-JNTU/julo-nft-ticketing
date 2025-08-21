@@ -249,6 +249,7 @@ export default function EventManagePage({ params }: { params: Promise<{ eventId:
     status: "pending" | "approved" | "rejected",
     notes?: string,
   ) => {
+    console.log("Updating request status:", status)
     try {
       const { error } = await supabase
         .from("requests")
