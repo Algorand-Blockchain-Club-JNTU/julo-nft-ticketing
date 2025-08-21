@@ -17,6 +17,7 @@ const SelectTrigger = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => {
   console.log("SelectTrigger component initialized")
+  console.log("SelectTrigger className:", className)
   return (
   <SelectPrimitive.Trigger
     ref={ref}
