@@ -238,6 +238,7 @@ export default function EventManagePage({ params }: { params: Promise<{ eventId:
   }
 
   const handleSelectRequest = (requestId: number) => {
+    console.log("Selecting request:", requestId)
     if (selectedRequests.includes(requestId)) {
       setSelectedRequests(selectedRequests.filter((id) => id !== requestId))
     } else {
