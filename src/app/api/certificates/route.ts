@@ -3,6 +3,12 @@ import { createClient } from "@supabase/supabase-js"
 
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
 
+/**
+ * Handles POST requests to mint certificates for event attendees.
+ * Verifies event ownership, checks if the event is completed, and creates certificates.
+ * @param request - The incoming request containing eventId, attendeeAddresses, and creatorAddress
+ * @returns A JSON response with success status or error message
+ */
 export async function POST(request: Request) {
   try {
     const { eventId, attendeeAddresses, creatorAddress } = await request.json()
