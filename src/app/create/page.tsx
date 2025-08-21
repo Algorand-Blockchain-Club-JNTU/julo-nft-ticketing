@@ -306,6 +306,7 @@ console.log("All Collected Asset IDs:", assetIds);
                   accept="image/*"
                   className="hidden"
                   onChange={(e) => {
+                    console.log("File selected for upload")
                     const file = e.target.files?.[0]
                     if (file) handleImageUpload(file)
                   }}
@@ -343,7 +344,10 @@ console.log("All Collected Asset IDs:", assetIds);
               placeholder="Event Name"
               className="text-3xl h-16 bg-transparent border-none placeholder:text-gray-500"
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={(e) => {
+                console.log("Event name changed")
+                setFormData({ ...formData, name: e.target.value })
+              }}
             />
 
             <div className="grid gap-4">
@@ -377,12 +381,16 @@ console.log("All Collected Asset IDs:", assetIds);
                     placeholder="Event Location"
                     className="bg-gray-800/50 flex-1"
                     value={formData.location}
-                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                    onChange={(e) => {
+                      console.log("Event location changed")
+                      setFormData({ ...formData, location: e.target.value })
+                    }}
                   />
                   <Button
                     variant="outline"
                     className="bg-gray-800/50"
                     onClick={() => {
+                      console.log("Geolocation button clicked")
                       if (navigator.geolocation) {
                         navigator.geolocation.getCurrentPosition((position) => {
                           setFormData({
@@ -400,12 +408,13 @@ console.log("All Collected Asset IDs:", assetIds);
                   <Button
                     variant="outline"
                     className="bg-gray-800/50"
-                    onClick={() =>
+                    onClick={() => {
+                      console.log("Maps button clicked")
                       window.open(
                         `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(formData.location)}`,
                         "_blank",
                       )
-                    }
+                    }}
                   >
                     <Map className="h-4 w-4" />
                   </Button>
@@ -421,7 +430,10 @@ console.log("All Collected Asset IDs:", assetIds);
                 placeholder="Event Description"
                 className="min-h-[100px] bg-gray-800/50"
                 value={formData.description}
-                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                onChange={(e) => {
+                  console.log("Event description changed")
+                  setFormData({ ...formData, description: e.target.value })
+                }}
               />
 
               <div className="grid gap-4">
@@ -431,7 +443,10 @@ console.log("All Collected Asset IDs:", assetIds);
                     type="number"
                     className="w-32 bg-gray-800/50"
                     value={formData.maxTickets}
-                    onChange={(e) => setFormData({ ...formData, maxTickets: e.target.value })}
+                    onChange={(e) => {
+                      console.log("Max tickets changed")
+                      setFormData({ ...formData, maxTickets: e.target.value })
+                    }}
                   />
                 </div>
 
@@ -444,6 +459,7 @@ console.log("All Collected Asset IDs:", assetIds);
                         id="freeTicket"
                         className="rounded border-gray-700 bg-gray-800/50"
                         onChange={(e) => {
+                          console.log("Free ticket checkbox changed")
                           if (e.target.checked) {
                             setFormData({ ...formData, ticketPrice: "0" })
                           }
@@ -458,7 +474,10 @@ console.log("All Collected Asset IDs:", assetIds);
                     type="number"
                     className="w-32 bg-gray-800/50"
                     value={formData.ticketPrice}
-                    onChange={(e) => setFormData({ ...formData, ticketPrice: e.target.value })}
+                    onChange={(e) => {
+                      console.log("Ticket price changed")
+                      setFormData({ ...formData, ticketPrice: e.target.value })
+                    }}
                     disabled={formData.ticketPrice === "0"}
                   />
                 </div>
@@ -467,12 +486,13 @@ console.log("All Collected Asset IDs:", assetIds);
                   <Label>Event Category</Label>
                   <Select
                     value={formData.eventMetadata.category}
-                    onValueChange={(value) =>
+                    onValueChange={(value) => {
+                      console.log("Event category changed")
                       setFormData({
                         ...formData,
                         eventMetadata: { ...formData.eventMetadata, category: value },
                       })
-                    }
+                    }}
                   >
                     <SelectTrigger className="w-32 bg-gray-800/50">
                       <SelectValue />
@@ -496,7 +516,10 @@ console.log("All Collected Asset IDs:", assetIds);
         <div className="flex justify-center gap-4">
           <Button
             className="w-full max-w-md bg-primary hover:bg-primary/90"
-            onClick={createTicketNFTs}
+            onClick={() => {
+              console.log("Create event button clicked")
+              createTicketNFTs()
+            }}
             disabled={isCreating || !activeAddress}
           >
             {isCreating ? (

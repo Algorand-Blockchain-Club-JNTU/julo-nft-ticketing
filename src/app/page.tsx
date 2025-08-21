@@ -62,6 +62,7 @@ const featureGroups = [
 
 export default function HomePage() {
     console.log("HomePage component initialized")
+    console.log("Rendering hero section")
     return (
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}

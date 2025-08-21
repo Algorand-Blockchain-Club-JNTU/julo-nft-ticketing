@@ -20,6 +20,7 @@ const walletManager = new WalletManager({
 
 export function Providers({ children }: { children: React.ReactNode }) {
     console.log("Providers component executed")
+    console.log("WalletProvider initialized")
     return (
     <WalletProvider manager={walletManager}>
       {children}

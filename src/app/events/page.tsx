@@ -125,13 +125,19 @@ export default function EventsPage() {
                 placeholder="Search events by name, location, or description..."
                 className="w-full h-14 pl-12 pr-4 rounded-2xl bg-gray-800/50 border-gray-700 backdrop-blur-xl focus:ring-2 focus:ring-primary/50 focus:border-primary"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => {
+                  console.log("Search query changed")
+                  setSearchQuery(e.target.value)
+                }}
               />
               <Button
                 variant="outline"
                 size="icon"
                 className="absolute right-2 top-2 h-10 w-10 rounded-xl border-gray-700 hover:bg-gray-700"
-                onClick={clearFilters}
+                onClick={() => {
+                  console.log("Filter button clicked")
+                  clearFilters()
+                }}
               >
                 <Filter className="h-4 w-4" />
               </Button>
@@ -151,7 +157,10 @@ export default function EventsPage() {
                       "data-[state=open]:bg-gray-800/50",
                       category.id === selectedCategory && "bg-primary/10 border-primary/50",
                     )}
-                    onClick={() => setSelectedCategory(category.id)}
+                    onClick={() => {
+                      console.log("Category button clicked")
+                      setSelectedCategory(category.id)
+                    }}
                   >
                     <div className={cn("w-2 h-2 rounded-full mr-2", category.color)} />
                     {category.name}
@@ -171,7 +180,10 @@ export default function EventsPage() {
                       "data-[state=open]:bg-gray-800/50",
                       range.id === selectedPriceRange && "bg-primary/10 border-primary/50",
                     )}
-                    onClick={() => setSelectedPriceRange(range.id)}
+                    onClick={() => {
+                      console.log("Price range button clicked")
+                      setSelectedPriceRange(range.id)
+                    }}
                   >
                     {range.name}
                   </Button>
@@ -194,7 +206,10 @@ export default function EventsPage() {
                     variant="ghost"
                     size="icon"
                     className="h-6 w-6 ml-1 hover:bg-gray-700"
-                    onClick={() => setSelectedCategory("all")}
+                    onClick={() => {
+                      console.log("Clear category filter button clicked")
+                      setSelectedCategory("all")
+                    }}
                   >
                     <X className="h-3 w-3" />
                   </Button>
@@ -207,7 +222,10 @@ export default function EventsPage() {
                     variant="ghost"
                     size="icon"
                     className="h-6 w-6 ml-1 hover:bg-gray-700"
-                    onClick={() => setSelectedPriceRange("all")}
+                    onClick={() => {
+                      console.log("Clear price range filter button clicked")
+                      setSelectedPriceRange("all")
+                    }}
                   >
                     <X className="h-3 w-3" />
                   </Button>
@@ -220,7 +238,10 @@ export default function EventsPage() {
                     variant="ghost"
                     size="icon"
                     className="h-6 w-6 ml-1 hover:bg-gray-700"
-                    onClick={() => setSearchQuery("")}
+                    onClick={() => {
+                      console.log("Clear search filter button clicked")
+                      setSearchQuery("")
+                    }}
                   >
                     <X className="h-3 w-3" />
                   </Button>
@@ -242,7 +263,10 @@ export default function EventsPage() {
           ) : filteredEvents.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-xl text-gray-400">No events found matching your criteria</p>
-              <Button variant="outline" className="mt-4" onClick={clearFilters}>
+              <Button variant="outline" className="mt-4" onClick={() => {
+                console.log("Clear all filters button clicked")
+                clearFilters()
+              }}>
                 Clear all filters
               </Button>
             </div>

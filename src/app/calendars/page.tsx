@@ -8,6 +8,7 @@ import Link from "next/link";
  * Shows sections for My Calendars and Subscribed Calendars with placeholder content.
  */
 export default function CalendarsPage() {
+  console.log("CalendarsPage rendered")
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-3xl mx-auto">
