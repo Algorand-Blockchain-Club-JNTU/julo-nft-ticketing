@@ -280,6 +280,7 @@ export default function EventManagePage({ params }: { params: Promise<{ eventId:
   }
 
   const handleBulkAction = async (action: "approve" | "reject") => {
+    console.log("Performing bulk action:", action)
     const suggestedParams = await algodClient.getTransactionParams().do();
 
     try {
