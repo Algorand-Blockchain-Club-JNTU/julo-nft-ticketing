@@ -60,6 +60,7 @@ export default function EventsPage() {
 
   // Filter events based on search, category, and price range
   useEffect(() => {
+    console.log("Filtering events based on criteria")
     let filtered = [...events]
 
     // Search filter
