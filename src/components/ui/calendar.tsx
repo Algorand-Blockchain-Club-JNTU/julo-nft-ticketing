@@ -15,6 +15,7 @@ function Calendar({
   showOutsideDays = true,
   ...props
 }: CalendarProps) {
+  console.log("Calendar component rendered")
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
