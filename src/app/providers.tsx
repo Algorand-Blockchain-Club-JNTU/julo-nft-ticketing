@@ -19,7 +19,8 @@ const walletManager = new WalletManager({
 });
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  return (
+   console.log("Providers component rendered")
+   return (
     <WalletProvider manager={walletManager}>
       {children}
       <ToastContainer
