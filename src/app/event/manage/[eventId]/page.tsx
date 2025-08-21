@@ -229,6 +229,7 @@ export default function EventManagePage({ params }: { params: Promise<{ eventId:
   })
 
   const handleSelectAll = () => {
+    console.log("Handling select all requests")
     if (selectedRequests.length === filteredRequests.length) {
       setSelectedRequests([])
     } else {
