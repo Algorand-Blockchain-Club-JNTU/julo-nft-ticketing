@@ -3,6 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import {  Plus } from "lucide-react";
 import Link from "next/link";
 
+/**
+ * CalendarsPage component displays the user's calendars and subscribed calendars.
+ * Shows sections for My Calendars and Subscribed Calendars with placeholder content.
+ */
 export default function CalendarsPage() {
   return (
     <div className="container mx-auto px-4 py-8">
