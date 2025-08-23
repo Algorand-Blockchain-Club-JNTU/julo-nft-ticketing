@@ -218,6 +218,7 @@ export default function EventPage({ params }: { params: Promise<{ id: string }> 
   }, [requestStatus.status, requestStatus.assetId, event, activeAddress])
 
   const handleUserDetailsSubmit = async (userDetails: { email: string; firstName: string; lastName: string }) => {
+    console.log("Handling user details submission")
     try {
       // Get or create user with the provided details
       const { user_id: newUserId, error: userError } = await getOrCreateUser(activeAddress!, userDetails)
