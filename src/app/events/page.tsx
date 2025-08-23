@@ -76,6 +76,7 @@ export default function EventsPage() {
 
     // Category filter
     if (selectedCategory !== "all") {
+      console.log("Applying category filter")
       filtered = filtered.filter((event) => event.category === selectedCategory)
     }
 
