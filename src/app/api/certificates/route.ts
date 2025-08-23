@@ -11,6 +11,7 @@ const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env
  */
 export async function POST(request: Request) {
   try {
+    console.log("Minting certificates for event")
     const { eventId, attendeeAddresses, creatorAddress } = await request.json()
 
     // Verify event owner
