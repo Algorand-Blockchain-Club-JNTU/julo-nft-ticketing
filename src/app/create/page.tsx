@@ -116,6 +116,7 @@ export default function CreateEventPage() {
   }
 
   const createTicketNFTs = async () => {
+    console.log("Starting ticket creation process")
     if (!activeAddress || !algodClient || !transactionSigner) {
       toast.error("Please connect your wallet first")
       return
