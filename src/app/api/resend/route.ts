@@ -95,6 +95,7 @@ async function generateQRCodeBase64(data: string): Promise<string> {
 }
 export async function POST(request: Request) {
   try {
+    console.log("Processing resend request")
     const { email, audienceId, event, ticketDetails } = await request.json()
 
     // Add contact to audience
