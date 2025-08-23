@@ -10,6 +10,7 @@ import axios from "axios";
  */
 export async function POST(req: Request) {
   try {
+    console.log("Uploading file to IPFS")
     const formData = await req.formData()
     const file = formData.get("file") as File
 
