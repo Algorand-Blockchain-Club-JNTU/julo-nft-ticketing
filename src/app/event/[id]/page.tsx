@@ -331,6 +331,7 @@ export default function EventPage({ params }: { params: Promise<{ id: string }> 
   }
 
   const renderTicketActionContent = () => {
+    console.log("Rendering ticket action content")
     if (!activeAddress) {
       return (
         <Card className="border-dashed">
@@ -384,7 +385,10 @@ export default function EventPage({ params }: { params: Promise<{ id: string }> 
     }
 
     return (
-      <Button className="w-full" size="lg" disabled={isPast || isPurchasing} onClick={handlePurchaseTicket}>
+      <Button className="w-full" size="lg" disabled={isPast || isPurchasing} onClick={() => {
+        console.log("Purchase ticket button clicked")
+        handlePurchaseTicket()
+      }}>
         {isPurchasing ? (
           <>
             <Loader2 className="w-4 h-4 mr-2 animate-spin" />
