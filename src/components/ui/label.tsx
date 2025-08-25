@@ -17,6 +17,7 @@ const Label = React.forwardRef<
 >(({ className, ...props }, ref) => {
   console.log("Label component initialized")
   console.log("Label className:", className)
+  console.log("Label props:", props)
   return (
   <LabelPrimitive.Root
     ref={ref}
