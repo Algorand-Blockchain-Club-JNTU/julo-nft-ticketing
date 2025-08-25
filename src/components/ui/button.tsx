@@ -40,6 +40,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     console.log("Button component initialized")
     console.log("Button variant:", variant)
+    console.log("Button size:", size)
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
