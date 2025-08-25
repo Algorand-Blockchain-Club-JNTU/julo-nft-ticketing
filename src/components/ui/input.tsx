@@ -6,6 +6,7 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
   ({ className, type, ...props }, ref) => {
     console.log("Input component initialized")
     console.log("Input type:", type)
+    console.log("Input className:", className)
     return (
       <input
         type={type}
