@@ -17,6 +17,7 @@ export type QRPayload = {
 // Function to sign the payload using Web Crypto API
 export async function signPayload(payload: TicketData, privateKey: string): Promise<string> {
   console.log("signPayload called")
+  console.log("Signing payload with private key")
   // Convert the payload to a string
   const payloadString = JSON.stringify(payload)
 
