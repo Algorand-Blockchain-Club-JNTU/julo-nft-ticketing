@@ -8,6 +8,7 @@ const Card = React.forwardRef<
 >(({ className, ...props }, ref) => {
   console.log("Card component initialized")
   console.log("Card className:", className)
+  console.log("Card props:", props)
   return (
   <div
     ref={ref}
