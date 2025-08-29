@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server"
-import { Resend } from "resend"
-import { generateEmailTemplate } from "@/lib/email-templates"
-import * as QRCode from "qrcode"
-import crypto from "crypto"
+import { NextResponse } from "next/server";
+import { Resend } from "resend";
+import { generateEmailTemplate } from "@/lib/email-templates";
+import * as QRCode from "qrcode";
+import crypto from "crypto";
 const resend = new Resend(process.env.RESEND_API_KEY)
 // Types for our data structures
 type TicketData = {
@@ -140,4 +140,5 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Failed to process request" }, { status: 500 })
   }
 }
+
 
