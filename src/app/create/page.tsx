@@ -15,7 +15,7 @@ import { Calendar } from "@/components/ui/calendar"
 import { toast } from "react-toastify"
 import algosdk from "algosdk"
 import { createClient } from "@supabase/supabase-js"
-import { Clock, MapPin } from "lucide-react"
+import { Clock, MapPin, Map } from "lucide-react"
 
 // Initialize Supabase client
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
@@ -53,6 +53,8 @@ export default function CreateEventPage() {
     name: "",
     description: "",
     location: "",
+    latitude: "",
+    longitude: "",
     maxTickets: "",
     ticketPrice: "",
     eventMetadata: {
@@ -239,6 +241,8 @@ console.log("All Collected Asset IDs:", assetIds);
           event_date: date.toISOString(),
           description: formData.description,
           location: formData.location,
+          latitude: formData.latitude ? parseFloat(formData.latitude) : null,
+          longitude: formData.longitude ? parseFloat(formData.longitude) : null,
           max_tickets: metadata.maxTickets,
           ticket_price: metadata.ticketPrice,
           venue: metadata.venue,
@@ -353,25 +357,51 @@ console.log("All Collected Asset IDs:", assetIds);
                 </div>
               </div>
 
-              <div className="flex gap-2">
-                <Input
-                  placeholder="Event Location"
-                  className="bg-gray-800/50 flex-1"
-                  value={formData.location}
-                  onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                />
-                <Button
-                  variant="outline"
-                  className="bg-gray-800/50"
-                  onClick={() =>
-                    window.open(
-                      `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(formData.location)}`,
-                      "_blank",
-                    )
-                  }
-                >
-                  <MapPin className="h-4 w-4" />
-                </Button>
+              <div className="space-y-2">
+                <Label>Event Location</Label>
+                <div className="flex gap-2">
+                  <Input
+                    placeholder="Event Location"
+                    className="bg-gray-800/50 flex-1"
+                    value={formData.location}
+                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                  />
+                  <Button
+                    variant="outline"
+                    className="bg-gray-800/50"
+                    onClick={() => {
+                      if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition((position) => {
+                          setFormData({
+                            ...formData,
+                            latitude: position.coords.latitude.toString(),
+                            longitude: position.coords.longitude.toString(),
+                          })
+                          toast.success("Location captured!")
+                        })
+                      }
+                    }}
+                  >
+                    <MapPin className="h-4 w-4" />
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="bg-gray-800/50"
+                    onClick={() =>
+                      window.open(
+                        `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(formData.location)}`,
+                        "_blank",
+                      )
+                    }
+                  >
+                    <Map className="h-4 w-4" />
+                  </Button>
+                </div>
+                {formData.latitude && formData.longitude && (
+                  <p className="text-xs text-green-400">
+                    📍 Location captured: {parseFloat(formData.latitude).toFixed(4)}, {parseFloat(formData.longitude).toFixed(4)}
+                  </p>
+                )}
               </div>
 
               <Textarea
