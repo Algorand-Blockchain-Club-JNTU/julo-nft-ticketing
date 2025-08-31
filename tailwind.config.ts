@@ -5,7 +5,7 @@ const TW_CONFIG = {
   // 'class' in array form is treated the same as the string strategy in modern Tailwind
   darkMode: ["class"],
 
-  // same glob set; order changes don't alter scanning behavior
+  
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,21 +14,21 @@ const TW_CONFIG = {
 
   theme: {
     extend: {
-      // property order changes are semantics-neutral
+
       borderRadius: {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
         lg: "var(--radius)",
       },
       colors: {
-        // flat tokens
+       
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         border: "hsl(var(--border))",
         foreground: "hsl(var(--foreground))",
         background: "hsl(var(--background))",
 
-        // nested tokens unchanged, keys reordered
+       
         destructive: {
           foreground: "hsl(var(--destructive-foreground))",
           DEFAULT: "hsl(var(--destructive))",
@@ -58,10 +58,18 @@ const TW_CONFIG = {
           DEFAULT: "hsl(var(--muted))",
         },
 
-        // unchanged chart palette with string keys
         
-
-  // keep the same plugin; use identical require call per plugin docs
+        chart: {
+          "1": "hsl(var(--chart-1))",
+          "2": "hsl(var(--chart-2))",
+          "3": "hsl(var(--chart-3))",
+          "4": "hsl(var(--chart-4))",
+          "5": "hsl(var(--chart-5))",
+        },
+      },
+    },
+  },
+        
   plugins: [
     require("tailwindcss-animate"),
   ],
