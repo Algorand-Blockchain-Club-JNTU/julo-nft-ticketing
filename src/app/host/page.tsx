@@ -128,6 +128,13 @@ export default function HostPage() {
             .single()
 
           setUserProfile(newProfile)
+          
+          // Send welcome NFT to new user
+          fetch('/api/welcome-nft', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userAddress: activeAddress })
+          })
         } else {
           setUserProfile(profile)
         }
